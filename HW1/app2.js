@@ -19,6 +19,13 @@ console.log(filteredNamesConditional);
 
 //Built-in array method
 
-const userNamesBuildin = ['Петро', 'Емма', 'Юстин', 'Ілля', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена'];
+const userNamesList = ['Петро', 'Емма', 'Юстин', 'Ілля', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена'];
 
+function startsFromVowel(name) {
+  const vowels = ['А', 'Е', 'Є', 'И', 'І', 'Ї', 'О', 'У', 'Ю', 'Я', 'а', 'е', 'є', 'и', 'і', 'ї', 'о', 'у', 'ю', 'я'];
+  return vowels.includes(name[0]);
+}
+
+let filteredNames = userNamesList.filter(startsFromVowel);
+console.log(filteredNames.sort());
 
