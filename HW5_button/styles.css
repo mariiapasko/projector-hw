@@ -1,0 +1,35 @@
+.switchButton {
+  padding: 40px 60px;
+  color: #5e130e;
+  border: 2px solid #b71c1c;
+  border-radius: 9px;
+  font-size: 60px;
+  transition: background-color 0.2s, color 0.2s;
+  text-transform: uppercase;
+}
+
+.switchButton:hover {
+  cursor: pointer;
+}
+
+body {
+  background: #ffebee;
+  position: absolute;
+  text-align: center;
+  max-width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 30px auto;
+  font-weight: bold;
+}
+
+body.on {
+  background-color: #c62828;
+}
+
+.message {
+  font-size: 20px;
+  color: #7d5b5d;
+  margin-top: 30px;
+}
