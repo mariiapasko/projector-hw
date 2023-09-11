@@ -38,7 +38,7 @@ button.addEventListener('click', () => {
     button.textContent = isOnDark ? 'Turn on' : 'Turn off';
 
     localStorage.setItem('isOn', isOnDark);
-    localStorage.setItem('lastChangedTime', formattedDate);
+    localStorage.setItem('lastCgangedTime', formattedDate);
 });
 
 function formatDate(date) {
