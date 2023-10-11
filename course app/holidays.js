@@ -1,20 +1,25 @@
 
 export function holidays() {
-    const form = document.querySelector('.tab2 form');
+    const form = document.querySelector('#tab2-content');
     const countrySelect = document.querySelector('#countryDropdown');
-    const table = document.querySelector('.tab2 table');
+    const table = document.querySelector('.holidayTable');
     const yearSelect = document.querySelector('#yearDropdown');
     const sortBtn = document.querySelector('.sort');
     const apiKey = 'XMyuEtIjU6zURSgt8IQtlcxXXJojEwFS';
+    const titles = document.querySelector('.title');
+
     let arrow = null;
+    titles.style.display = "none";
+
 
     function addToTable(data) {
-        document.querySelectorAll('.tab2 .localstorage').forEach(item => item.remove());
+        document.querySelectorAll('.tab2 .storage').forEach(item => item.remove());
 
         data.forEach(element => {
             const newDate = new Date(element.date.iso);
             const tableRow = document.createElement('tr');
-            tableRow.classList.add('localstorage');
+            tableRow.classList.add('storage');
+            tableRow.className = 'tableRow'
             tableRow.innerHTML = `
                 <td>${newDate.getDate()} ${newDate.toLocaleString('default', { month: 'short' })} ${newDate.getFullYear()}</td>
                 <td>${element.name}</td>
@@ -28,6 +33,7 @@ export function holidays() {
             .then(response => response.json())
             .then(data => {
                 arrow = data.response.holidays;
+                table.innerHTML='';
                 addToTable(arrow);
                 sortBtn.classList.add('active');
             })
@@ -39,8 +45,16 @@ export function holidays() {
     }
 
     sortBtn.addEventListener('click', () => {
-        sortBtn.classList.toggle('sorted');
+sortBtn.classList.toggle('active');
+table.innerHTML='';
+const rows = Array.from(table.querySelectorAll('.tableRow'));
+rows.reverse();
+rows.forEach(row => table.removeChild(row));
+rows.forEach(row => table.appendChild(row));
+        
+        
         arrow.sort(() => -1);
+
         addToTable(arrow);
     });
 
