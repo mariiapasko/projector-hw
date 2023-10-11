@@ -4,32 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Dates and holidays</title>
   </head>
   <body>
-
     <div class="tabs">
-        <div id="tab1" class="tab active" onclick="switchTab('tab1')"">Calendar</div>
-        <div id="tab2" class="tab" onclick="switchTab('tab2')">Holidays</div>
+      <div id="tab1" class="tab active" onclick="changeTab('tab1')">Calendar</div>
+      <div id="tab2" class="tab" onclick="changeTab('tab2')">Holidays</div>
     </div>
 
-    <div id="calendar" class="tab1 content active">
+    <div id="tab1-content" class="tab-content active">
       <form>
         <h1>Calendar application</h1>
         <div class="start-input">
-          <label for="start-date">Start date</label>
-          <input class="date-input" id="start-date" type="date" />
-        </div>
-        <div id="timespan-presets">
-          <button id="week-preset" data-preset="week" type="button">week</button>
-          <button id="month-preset" data-preset="month" type="button">month</button>
-        </div>
-        <div class="end-input">
-          <label for="end-date">End date</label>
-          <input class="date-input" id="end-date" type="date" disabled />
+          <label>Start date</label>
+          <input id="start-date" type="date" />
         </div>
 
+        <div class="end-input">
+          <label>End date</label>
+          <input id="end-date" type="date" disabled />
+        </div>
+        <div id="timespan-presets">
+          <button id="week-preset" class="btn" type="button" value="7">
+            week
+          </button>
+          <button id="month-preset" class="btn" type="button" value="30">
+            month
+          </button>
+        </div>
         <div>
           <label for="filter-days-section">Day types</label>
           <select name="days" id="filter-days-section">
@@ -49,46 +58,42 @@
         </div>
         <button type="submit" id="calculate">Calculate</button>
       </form>
-    
 
-      <div class="results"> </div>
+      <div class="results"></div>
 
-        <h2 id="results-header">Results:</h2>
-        <table class ="last-result">
-          <tr>
-          <th>From</th>
-          <th>To</th>
-          <th>Result</th>
+      <h2 id="results-header">Results:</h2>
+      <table class="table table-sm last-result">
+        <tr>
+          <th scope="col" class="text-uppercase title">From</th>
+          <th scope="col" class="text-uppercase title">To</th>
+          <th scope="col" class="text-uppercase title">Result</th>
         </tr>
-        </table>
-        
+      </table>
     </div>
 
-    <div id="holidays" class="tab2 content">
-      
-      <form> 
-        <h1>Holidays calendar</h1>   
+    <div id="tab2-content" class="tab-content">
+      <form>
+        <h1>Holidays calendar</h1>
         <label>
           Country
-        <select id="countryDropdown">
-        </select>
-      </label>
-        <label>Year
-        <select id="yearDropdown"disabled>
-        </select></label>
-    </br>
-
-    <div class="table">
-      <table>
-    <tr>
-      <th>Date</th>
-      <th>Holiday</th>
-    </tr>
-      </table>
-    <button class="sort"> Sort</button>
-      </div> 
-
-</div>
+          <select id="countryDropdown"></select>
+        </label>
+        <label
+          >Year
+          <select id="yearDropdown" disabled></select
+        ></label>
+      
+      </form>
+      <div class="table table-sm">
+        <table class="holidayTable">
+          <tr>
+            <button class="sort">Sort</button>
+            <th scope="col" class="text-uppercase title">Date <button class="sort">Sort</button></th>
+            <th scope="col" class="text-uppercase title">Holiday</th>
+          </tr>
+        </table>
+      </div>
+    </div>
     <script src="./app.js" type="module"></script>
   </body>
 </html>
