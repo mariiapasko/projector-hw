@@ -35,7 +35,6 @@ export function holidays() {
                 arrow = data.response.holidays;
                 table.innerHTML='';
                 addToTable(arrow);
-                sortBtn.classList.add('active');
             })
             .catch(addError);
     }

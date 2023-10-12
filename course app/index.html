@@ -15,7 +15,9 @@
   </head>
   <body>
     <div class="tabs">
-      <div id="tab1" class="tab active" onclick="changeTab('tab1')">Calendar</div>
+      <div id="tab1" class="tab active" onclick="changeTab('tab1')">
+        Calendar
+      </div>
       <div id="tab2" class="tab" onclick="changeTab('tab2')">Holidays</div>
     </div>
 
@@ -26,11 +28,6 @@
           <label>Start date</label>
           <input id="start-date" type="date" />
         </div>
-
-        <div class="end-input">
-          <label>End date</label>
-          <input id="end-date" type="date" disabled />
-        </div>
         <div id="timespan-presets">
           <button id="week-preset" class="btn" type="button" value="7">
             week
@@ -39,6 +36,11 @@
             month
           </button>
         </div>
+        <div class="end-input">
+          <label>End date</label>
+          <input id="end-date" type="date" disabled />
+        </div>
+
         <div>
           <label for="filter-days-section">Day types</label>
           <select name="days" id="filter-days-section">
@@ -62,7 +64,7 @@
       <div class="results"></div>
 
       <h2 id="results-header">Results:</h2>
-      <table class="table table-sm last-result">
+      <table class="table table-sm list-result">
         <tr>
           <th scope="col" class="text-uppercase title">From</th>
           <th scope="col" class="text-uppercase title">To</th>
@@ -82,18 +84,29 @@
           >Year
           <select id="yearDropdown" disabled></select
         ></label>
-      
       </form>
       <div class="table table-sm">
         <table class="holidayTable">
           <tr>
             <button class="sort">Sort</button>
-            <th scope="col" class="text-uppercase title">Date <button class="sort">Sort</button></th>
+            <th scope="col" class="text-uppercase title">
+              Date <button class="sort">Sort</button>
+            </th>
             <th scope="col" class="text-uppercase title">Holiday</th>
           </tr>
         </table>
       </div>
     </div>
+    <footer class="footer">
+      You can find this project related to
+      <a href="https://prjctr.com/" target="_blank">Projector course </a> in the
+      <a
+        href="https://github.com/mariiapasko/projector-hw/tree/a7c9a165abfef9c1acc06b388d89c307d6c71e35/course%20app"
+        target="_blank"
+      >
+        GitHub pages</a
+      >
+    </footer>
     <script src="./app.js" type="module"></script>
   </body>
 </html>
