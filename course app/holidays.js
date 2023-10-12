@@ -1,15 +1,15 @@
 
 export function holidays() {
-    const form = document.querySelector('#tab2-content');
+    const form = document.querySelector('#tab2-content form');
     const countrySelect = document.querySelector('#countryDropdown');
-    const table = document.querySelector('.holidayTable');
+    const table = document.querySelector('#tab2-content table');
     const yearSelect = document.querySelector('#yearDropdown');
     const sortBtn = document.querySelector('.sort');
-    const apiKey = 'XMyuEtIjU6zURSgt8IQtlcxXXJojEwFS';
-    const titles = document.querySelector('.title');
+    const apiKey = 'RQutss7hDFlA6OUiyWDoeYrzj3zRoY9W';
+
 
     let arrow = null;
-    titles.style.display = "none";
+    table.textContent = '';
 
 
     function addToTable(data) {
@@ -33,8 +33,9 @@ export function holidays() {
             .then(response => response.json())
             .then(data => {
                 arrow = data.response.holidays;
-                table.innerHTML='';
+                table.innerHTML = '';
                 addToTable(arrow);
+                sortBtn.classList.add('active');
             })
             .catch(addError);
     }
@@ -44,14 +45,13 @@ export function holidays() {
     }
 
     sortBtn.addEventListener('click', () => {
-sortBtn.classList.toggle('active');
-table.innerHTML='';
-const rows = Array.from(table.querySelectorAll('.tableRow'));
-rows.reverse();
-rows.forEach(row => table.removeChild(row));
-rows.forEach(row => table.appendChild(row));
-        
-        
+        sortBtn.classList.toggle('sorted');
+        const rows = Array.from(table.querySelectorAll('.tableRow'));
+        rows.reverse();
+        rows.forEach(row => table.removeChild(row));
+        rows.forEach(row => table.appendChild(row));
+
+
         arrow.sort(() => -1);
 
         addToTable(arrow);
@@ -71,6 +71,11 @@ rows.forEach(row => table.appendChild(row));
                 const option = document.createElement('option');
                 option.innerHTML = element.country_name;
                 option.value = element['iso-3166'];
+
+                if (element['iso-3166'] === 'UA') {
+                    option.setAttribute('selected', 'selected');
+                }
+
                 countrySelect.appendChild(option);
             });
         })
