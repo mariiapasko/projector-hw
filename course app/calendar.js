@@ -23,7 +23,7 @@ export function calendar() {
             return endDateInput.value = '';
         }
         endDateInput.removeAttribute('disabled');
-        endDateInput.setAttribute('min', endDateInput.value);
+        endDateInput.setAttribute('min', startDateInput.value);
         dateDistance();
     });
 
@@ -118,7 +118,3 @@ export function calendar() {
     }
 
 }
-
-
-
-
