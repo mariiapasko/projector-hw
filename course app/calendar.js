@@ -11,12 +11,11 @@ export function calendar() {
 
     const storedResult = JSON.parse(localStorage.getItem('result'));
 
-    if (storedResult !== null) {
-        lastResultHandler(storedResult);
-    }
+ 
 
+// add Listeners to the start and end dates
     startDateInput.addEventListener('change', () => {
-        if (startDateInput === '') {
+        if (startDateInput.value === '') {
             return endDateInput.setAttribute('disabled', 'disabled');
         }
         if (new Date(startDateInput.value) > new Date(endDateInput.value)) {
@@ -41,14 +40,6 @@ export function calendar() {
     function addBtnActive(btn) {
         btn.parentElement.querySelectorAll('.btn').forEach(item => item.classList.remove('active'))
         btn.classList.add('active');
-    }
-
-
-    function dateDistance() {
-        const dayMilliseconds = 1000 * 60 * 60 * 24;
-        dateDistanceMilliseconds = new Date(endDateInput.value) - new Date(startDateInput.value);
-        result = Math.floor(dateDistanceMilliseconds / (dayMilliseconds));
-
     }
 
     function addDays(val) {
@@ -82,39 +73,19 @@ export function calendar() {
     })
 
 
-    let arr = [];
+    /*
+    function dateDistance() {
+        const dayMilliseconds = 1000 * 60 * 60 * 24;
+        dateDistanceMilliseconds = new Date(endDateInput.value) - new Date(startDateInput.value);
+        result = Math.floor(dateDistanceMilliseconds / (dayMilliseconds));
 
-    function setLocalStorage() {
-
-        if (storedResult !== null) {
-            arr = storedResult;
-        }
-
-        let obj = {
-            startDate: startDateInput.value,
-            endDate: endDateInput.value,
-            result,
-        };
-
-        arr.push(obj);
-        localStorage.setItem('result', JSON.stringify(arr));
     }
 
-    function lastResultHandler(data) {
-        const localstorageElements = document.querySelectorAll('.tab1 .storage');
-        localstorageElements.forEach(item => item.remove());
-
-        const lastResultElement = document.getElementById('lastResult'); // assuming lastResultElement is defined somewhere
-
-        data.slice(-10).forEach(item => {
-            lastResultElement.innerHTML += `
-            <tr class="storage">
-                <td>${item.startDateInput}</td>
-                <td>${item.endDateInput}</td>
-                <td>${item.result}</td>
-            </tr>
-        `;
-        });
+ if (storedResult !== null) {
+        lastResultHandler(storedResult);
     }
+*/
+
 
 }
+
