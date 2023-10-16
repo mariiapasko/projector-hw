@@ -8,7 +8,7 @@ function switchTab(tabId) {
     tabs.forEach(tab => {
         tab.classList.remove('active');
     });
-    
+
     tabContents.forEach(content => {
         content.classList.remove('active');
     });
@@ -24,7 +24,7 @@ tabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
         if (!e.target.classList.contains('active')) {
             switchTab(e.target.id);
-            
+
             if (e.target.id === 'tab1') {
                 calendar();
             } else if (e.target.id === 'tab2') {
