@@ -11,8 +11,6 @@ export function calendar() {
     let result = null;
 
 
-    
-
     // adding listeners to the start and end dates
     startDateInput.addEventListener('change', () => {
         if (startDateInput.value === '') {
@@ -150,10 +148,10 @@ export function calendar() {
     //LocalStorage activities
     let storedResult = [];
     function setLocalStorage() {
-if (JSON.parse(localStorage.getItem('result')) !== null) {
-    storedResult = JSON.parse(localStorage.getItem('result'))
-}
-       
+        if (JSON.parse(localStorage.getItem('result')) !== null) {
+            storedResult = JSON.parse(localStorage.getItem('result'))
+        }
+
         const obj = {
             date1: startDateInput.value,
             date2: endDateInput.value,
@@ -186,16 +184,7 @@ if (JSON.parse(localStorage.getItem('result')) !== null) {
 
 
         const resultElement = document.querySelector('.result');
-        //const selectedUnit = document.querySelector('.btn.active').value;
 
-        //const unitLabels = {
-          //  days: 'days',
-            //hours: 'hours',
-            //minutes: 'minutes',
-            //seconds: 'seconds',
-        //};
-
-       // const unitLabel = unitLabels[selectedUnit] || 'days';
         resultElement.innerHTML = `The difference between ${startDateInput.value} and ${endDateInput.value} is ${result} `;
 
         setLocalStorage();
