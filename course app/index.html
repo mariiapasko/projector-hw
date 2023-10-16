@@ -29,10 +29,10 @@
           <input id="start-date" type="date" />
         </div>
         <div id="timespan-presets">
-          <button id="week-preset" class="btn" type="button" value="7">
+          <button id="week-preset" class="btn" type="button" value="week">
             week
           </button>
-          <button id="month-preset" class="btn" type="button" value="30">
+          <button id="month-preset" class="btn" type="button" value="month">
             month
           </button>
         </div>
@@ -41,35 +41,33 @@
           <input id="end-date" type="date" disabled />
         </div>
 
-        <div>
+        <div id="filter-days-section">
           <label for="filter-days-section">Day types</label>
-          <select name="days" id="filter-days-section">
-            <option value="all">all days</option>
-            <option value="weekdays">weekdays</option>
-            <option value="weekends">weekends</option>
-          </select>
+          <button value="all" class="btn" type="button">all days</button>
+          <button value="weekdays" class="btn" type="button">weekdays</button>
+          <button value="weekends" class="btn" type="button">weekends</button>
         </div>
-        <div>
-          <label for="duration">Duration</label>
-          <select name="duration" id="duration">
-            <option value="days">days</option>
-            <option value="hours">hours</option>
-            <option value="minutes">minutes</option>
-            <option value="seconds">seconds</option>
-          </select>
+        <div id="units">
+          <label for="units">Units</label>
+          <button value="days" class="btn" type="button">days</button>
+          <button value="hours" class="btn" type="button">hours</button>
+          <button value="minutes" class="btn" type="button">minutes</button>
+          <button value="seconds" class="btn" type="button">seconds</button>
         </div>
-        <button type="submit" id="calculate">Calculate</button>
+        <br />
+        <hr />
+        <button type="submit" class="submit">Calculate the difference</button>
       </form>
 
-      <div class="results"></div>
-
-      <h2 id="results-header">Results:</h2>
+      <div class="result"></div>
       <table class="table table-sm list-result">
-        <tr>
-          <th scope="col" class="text-uppercase title">From</th>
-          <th scope="col" class="text-uppercase title">To</th>
-          <th scope="col" class="text-uppercase title">Result</th>
-        </tr>
+        <thead>
+          <tr>
+            <th scope="col" class="text-uppercase title">From</th>
+            <th scope="col" class="text-uppercase title">To</th>
+            <th scope="col" class="text-uppercase title">Result</th>
+          </tr>
+        </thead>
       </table>
     </div>
 
@@ -85,13 +83,13 @@
           <select id="yearDropdown" disabled></select
         ></label>
       </form>
+
       <div class="table table-sm">
-        <table class="holidayTable">
+        
+        <table>
+          <button class="sort">Sort by date</button> 
           <tr>
-            <button class="sort">Sort</button>
-            <th scope="col" class="text-uppercase title">
-              Date <button class="sort">Sort</button>
-            </th>
+            <th scope="col" class="text-uppercase title"> Date</th>
             <th scope="col" class="text-uppercase title">Holiday</th>
           </tr>
         </table>
