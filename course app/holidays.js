@@ -21,6 +21,7 @@ export function holidays() {
             tableRow.classList.add('storage');
             tableRow.className = 'tableRow'
             tableRow.innerHTML = `
+        
                 <td>${newDate.getDate()} ${newDate.toLocaleString('default', { month: 'short' })} ${newDate.getFullYear()}</td>
                 <td>${element.name}</td>
             `;
